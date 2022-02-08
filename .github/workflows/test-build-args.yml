@@ -1,0 +1,17 @@
+name: Tester
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install action dependencies
+        run: cd .github/actions/tester && npm ci
+
+      - uses: ./.github/actions/tester
+        with:
+          build-args: |
+            version=hello

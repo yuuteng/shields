@@ -1,0 +1,12 @@
+name: 'Tester'
+description: 'Just for debugging purposes'
+branding:
+  icon: 'check-circle'
+  color: 'green'
+inputs:
+  build-args:
+    description: 'List of build-time variables'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
