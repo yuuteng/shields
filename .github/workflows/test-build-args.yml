@@ -11,7 +11,10 @@ jobs:
       - name: Install action dependencies
         run: cd .github/actions/tester && npm ci
 
+      - name: Set Git Short SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - uses: ./.github/actions/tester
         with:
           build-args: |
-            version=${{GITHUB_SHA::7}}
+            version=${{ env.SHORT_SHA }}
