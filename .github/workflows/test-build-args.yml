@@ -14,4 +14,4 @@ jobs:
       - uses: ./.github/actions/tester
         with:
           build-args: |
-            version=hello
+            version=${GITHUB_SHA::7}
